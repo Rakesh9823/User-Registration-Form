@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import "../components/Details.css"
 const Details = () => {
     const [data , setData] = useState([])
 
@@ -32,9 +32,19 @@ const Details = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                    <td></td>
-                </tr>
+                {data.map((ele, index) =>{
+                  return(
+                    <tr key={index}>
+                      <td>{ele.name}</td>
+                      <td>{ele.age}/{ele.gender}</td>
+                      <td>{ele.mobile}</td>
+                      <td>{ele.address},{ele.pincode},{ele.city},{ele.state}</td>
+                      <td>{ele.govtId}</td>
+                      <td>{ele.guardianDetails}: {ele.guardianName} , {ele.email} , {ele.emergencyNumber}</td>
+                      <td>{ele.nationality}</td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
         </div>

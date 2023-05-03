@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table{
+    
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+thead tr{
+    background-color: olivedrab;
+}
+
+thead th{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+tbody tr{
+    box-shadow: 0px 2px 2px navy;
+    row-gap: 20px;
+}
+
+tbody td{
+    padding: 10px;
+    
+}
+
+tbody td:hover{
+    font-size: 1.2rem;
+    color: blue;
+}

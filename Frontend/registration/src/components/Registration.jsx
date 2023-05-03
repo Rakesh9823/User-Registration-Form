@@ -40,13 +40,13 @@ const Registration = () => {
                     <h2>Personal Details</h2>
                     <div className='personal-details'>
                         <section className='name-field'>
-                            <label htmlFor="name">Name<span className='red'>*</span></label>
+                            <label htmlFor="name">Name<span className='red'>*</span>:</label>
                             <input type="text" id='name' placeholder='Enter Name' 
                             onChange={(e) =>{setUserData({...userData , name:e.target.value})}} />
                         </section>
 
                         <section className='age-field'>
-                            <label htmlFor="age">Age<span className='red'>*</span></label>
+                            <label htmlFor="age">Age<span className='red'>*</span>:</label>
                             <input type="number" id='age' placeholder='Enter Age'
                              onChange={(e) =>{setUserData({...userData , age:e.target.value})}} />
                         </section>
@@ -64,13 +64,13 @@ const Registration = () => {
                             </select>
                         </section>
                         <section className='mobile-field'>
-                            <label htmlFor="mobile">Mobile</label>
+                            <label htmlFor="mobile">Mobile:</label>
                             <input type="number" id='mobile' placeholder='Enter Mobile number'
                              onChange={(e) =>{setUserData({...userData , mobile:e.target.value})}} />
                         </section>
 
                         <section className='govtId-field'>
-                            <label htmlFor="govt-id">Govt Issued ID</label>
+                            <label htmlFor="govt-id">Govt Issued ID:</label>
                             <select name="" id="" 
                              onChange={(e) =>{setUserData({...userData , govtIdType:e.target.value})}}
                               >
@@ -86,7 +86,7 @@ const Registration = () => {
                     <h2>Contact Details</h2>
                     <div className='contact-details'>
                         <section className='guardian-field'>
-                            <label htmlFor="g-name">Guardian Details</label>
+                            <label htmlFor="g-name">Guardian Details:</label>
                             <select name="" id="g-name" 
                             onChange={(e) =>{setUserData({...userData ,guardianDetails :e.target.value})}} >
                                 <option value="">Enter Label</option>
@@ -101,13 +101,13 @@ const Registration = () => {
                         </section>
 
                         <section className='email-field'>
-                            <label htmlFor="email">E-mail</label>
+                            <label htmlFor="email">E-mail:</label>
                             <input type="email" id='email' placeholder='Enter Email' 
                             onChange={(e) =>{setUserData({...userData ,email :e.target.value})}} />
                         </section>
 
                         <section className='emergency-contact'>
-                            <label htmlFor="emergency">Emergency Contact Number</label>
+                            <label htmlFor="emergency">Emergency Contact Number:</label>
                             <input type="number" id='emergency' placeholder='Enter Emergency Number' 
                              onChange={(e) =>{setUserData({...userData ,emergencyNumber :e.target.value})}} />
                         </section>
@@ -117,31 +117,31 @@ const Registration = () => {
                     <div className='address-details'>
 
                         <section className='address-field'>
-                            <label htmlFor="address">Address</label>
+                            <label htmlFor="address">Address:</label>
                             <input type="text" id='address' placeholder='Enter Address' 
                             onChange={(e) =>{setUserData({...userData ,address :e.target.value})}} />
                         </section>
 
                         <section className='state-field'>
-                            <label htmlFor="state">State</label>
+                            <label htmlFor="state">State:</label>
                             <input type="text" id='state' placeholder='Enter State' 
                             onChange={(e) =>{setUserData({...userData ,state :e.target.value})}} />
                         </section>
 
                         <section className='city-field'>
-                            <label htmlFor="city">City</label>
+                            <label htmlFor="city">City:</label>
                             <input type="text" id='city' placeholder='Enter City' 
                             onChange={(e) =>{setUserData({...userData ,city :e.target.value})}} />
                         </section>
 
                         <section className='country-field'>
-                            <label htmlFor="country">Country</label>
+                            <label htmlFor="country">Country:</label>
                             <input type="text" id='country' placeholder='Enter Country' 
                             onChange={(e) =>{setUserData({...userData ,country :e.target.value})}} />
                         </section>
 
                         <section className='pincode-field'>
-                            <label htmlFor="picode">Pincode</label>
+                            <label htmlFor="picode">Pincode:</label>
                             <input type="number" id='pincode' placeholder='Enter pincode' 
                             onChange={(e) =>{setUserData({...userData ,pincode :e.target.value})}} />
                         </section>
@@ -151,13 +151,13 @@ const Registration = () => {
                     <h2>Other Details</h2>
                     <div className='other-details'>
                         <section className='occupation-field'>
-                            <label htmlFor="occupation">Occupation</label>
+                            <label htmlFor="occupation">Occupation:</label>
                             <input type="text" id='occupation' placeholder='Enter Occupation' 
                             onChange={(e) =>{setUserData({...userData ,occupation :e.target.value})}} />
                         </section>
 
                         <section className='religion-field'>
-                            <label htmlFor="religion">Religion</label>
+                            <label htmlFor="religion">Religion:</label>
                             <select name="" id="religion" 
                             onChange={(e) =>{setUserData({...userData ,religion :e.target.value})}} >
                                 <option value="">select</option>
@@ -195,7 +195,7 @@ const Registration = () => {
                         </section>
 
                         <section className='nationality-field'>
-                            <label htmlFor="nationality">Nationality</label>
+                            <label htmlFor="nationality">Nationality:</label>
                             <input type="text" id='nationality' placeholder='Enter Nationality'  
                             onChange={(e) =>{setUserData({...userData ,nationality :e.target.value})}} />
                         </section>
