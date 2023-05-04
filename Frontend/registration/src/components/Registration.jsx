@@ -9,7 +9,7 @@ const Registration = () => {
     state:"" , city:"" , country:"" , pincode:"" , occupation:"" , religion:"" , maritalStatus:"" ,
     bloodGroup:"" , nationality:""})
 
-    const [error , setError] = useState({name:"" , age:"" , gender:""})
+    const [error , setError] = useState({name:"" , age:"" , gender:"" , mobile:"" , emergencyNumber:"" })
 
     const [seeDetails , setSeeDetails] = useState(false)
 
@@ -57,6 +57,28 @@ const Registration = () => {
                 }
                 break
 
+            case "mobile":
+                if(!userData.mobile){
+                    setError({...error , mobile:"Mobile number should start with either 9 , 8 or 7"})
+                }
+               else if(userData.mobile.length < 10){
+                    setError({...error , mobile:"Mobile number should be 10 numeric character"})
+               }else {
+                    setError({...error , mobile:""})
+               }
+               break
+
+            case "emergency":
+                if(!userData.emergencyNumber){
+                    setError({...error , emergencyNumber:"Mobile number should start with either 9 , 8 or 7"})
+                }
+               else if(userData.emergencyNumber.length < 10){
+                    setError({...error , emergencyNumber:"Mobile number should be 10 numeric character"})
+               }else {
+                    setError({...error , emergencyNumber:""})
+               }
+               break
+
             default:
                 return
         }
@@ -85,7 +107,7 @@ const Registration = () => {
                             <input type="text" id='name' placeholder='Enter Name' 
                             onChange={(e) =>{setUserData({...userData , name:e.target.value})}}
                             onBlur={() =>{handleError("name")}} />
-                            {error.name?<div className='gender'>{error.name}</div>:null}
+                            {error.name?<div className='error'>{error.name}</div>:null}
                         </section>
 
                         <section className='age-field'>
@@ -93,7 +115,7 @@ const Registration = () => {
                             <input type="number" id='age' placeholder='Enter Age'
                              onChange={(e) =>{setUserData({...userData , age:e.target.value})}} 
                              onBlur={() =>{handleError("age")}} />
-                             {error.age?<div className='gender'>{error.age}</div>:null}
+                             {error.age?<div className='error'>{error.age}</div>:null}
                         </section>
 
                         <section className='gender-field'>
@@ -107,12 +129,14 @@ const Registration = () => {
                                 <option value="F">Female</option>
                                 <option value="other">Other</option>
                             </select>
-                            {error.gender?<div className='gender'>{error.gender}</div>:null}
+                            {error.gender?<div className='error'>{error.gender}</div>:null}
                         </section>
                         <section className='mobile-field'>
                             <label htmlFor="mobile">Mobile:</label>
                             <input type="number" id='mobile' placeholder='Enter Mobile number'
-                             onChange={(e) =>{setUserData({...userData , mobile:e.target.value})}} />
+                             onChange={(e) =>{setUserData({...userData , mobile:e.target.value})}} 
+                             onBlur={() =>{handleError("mobile")}}/>
+                             {error.mobile ? <div className='error'>{error.mobile}</div>:null}
                         </section>
 
                         <section className='govtId-field'>
@@ -157,7 +181,9 @@ const Registration = () => {
                         <section className='emergency-contact'>
                             <label htmlFor="emergency">Emergency Contact Number:</label>
                             <input type="number" id='emergency' placeholder='Enter Emergency Number' 
-                             onChange={(e) =>{setUserData({...userData ,emergencyNumber :e.target.value})}} />
+                             onChange={(e) =>{setUserData({...userData ,emergencyNumber :e.target.value})}} 
+                             onBlur={() =>{handleError("emergency")}}/>
+                             {error.emergencyNumber ? <div className='error'>{error.emergencyNumber}</div>:null}
                         </section>
                     </div>
 
