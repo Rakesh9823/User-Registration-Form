@@ -125,6 +125,8 @@ const Registration = () => {
                                 <option value="pan">Pan Card</option>
                             </select>
                             <input type="text" id='govt-id' placeholder='Enter Govt id' 
+                            minLength={userData.govtIdType == "adhar" ? 12 : 10} 
+                            maxLength={userData.govtIdType == "adhar" ? 12 : 10}
                             onChange={(e) =>{setUserData({...userData , govtId:e.target.value})}} />
                         </section>
                     </div>
