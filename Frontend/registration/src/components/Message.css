@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.message-container{
+    position: relative;
+    top: -53rem;
+    left: 15rem;
+}
+.message-content{
+    width: 30%;
+    height: 250px;
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px gray;
+    background-color: #ffffff;
+
+}
+
+.see-details{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 3%;
+    border: 1px solid green;
+    color: green;
+}

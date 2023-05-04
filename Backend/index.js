@@ -15,11 +15,18 @@ mongoose.connect("mongodb://127.0.0.1:27017/Registration" , {useNewUrlParser:tru
 app.post("/user" , async (req , res) =>{
     try{
         let data = req.body
-        let newUser = await User.create(data)
+        console.log(data)
+        if(data.name == "" || data.age =="" || data.gender ==""){
+            res.status(500).json({
+                status:"Failed"
+            })
+        }else{
+            let newUser = await User.create(data)
         res.status(201).json({
             status:"Success",
             newUser
         })
+        }
     }catch(e){
         res.status(401).json({
             status:"Failed",

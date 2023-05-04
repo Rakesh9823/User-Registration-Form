@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     gender:{type:String , required:true},
     mobile:{type:Number },
     govtIdType:{type:String },
-    govtId:{type:Number },
+    govtId:{type:String },
     guardianDetails:{type:String },
     guardianName:{type:String},
     email:{type:String},

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import "../components/Registration.css";
 import { useNavigate } from 'react-router-dom';
+import Message from './Message';
 
 const Registration = () => {
     const [userData , setUserData] = useState({name:"" , age:"" , gender:"" , mobile:"" , govtIdType:"" ,
     govtId:"" , guardianDetails:"", guardianName:"" , email:"" , emergencyNumber:"" , address:"" ,
     state:"" , city:"" , country:"" , pincode:"" , occupation:"" , religion:"" , maritalStatus:"" ,
     bloodGroup:"" , nationality:""})
+
+    const [error , setError] = useState({name:"" , age:"" , gender:""})
+
+    const [seeDetails , setSeeDetails] = useState(false)
 
     const navigate = useNavigate()
 
@@ -19,11 +24,47 @@ const Registration = () => {
             body: JSON.stringify(userData),
         })
         const result = await fetchData.json()
-        if(result.message == "Failed"){
+        if(result.status == "Failed"){
             alert("Check your details.")
         }else{
-            navigate("/details")
+            setSeeDetails(true)
         }
+    }
+
+    const handleError = (type) =>{
+        switch(type){
+            case "name":
+                if(userData.name.length === 0){
+                    setError({...error , name:"Please fill your name."})
+                }else {
+                    setError({...error , name:""})
+                }
+                break
+
+            case "age":
+                if(userData.age.length === 0){
+                    setError({...error , age:"Please enter your age"})
+                }else{
+                    setError({...error , age:""})
+                }
+                break;
+
+            case "sex":
+                if(!userData.gender){
+                    setError({...error , gender:"Please select your gender."})
+                }else{
+                    setError({...error , gender:""})
+                }
+                break
+
+            default:
+                return
+        }
+
+
+        setTimeout(() =>{
+            setError({name:"" , age:"" , gender:""})
+        },5000)
     }
 
     const handleCancel = () =>{
@@ -42,26 +83,31 @@ const Registration = () => {
                         <section className='name-field'>
                             <label htmlFor="name">Name<span className='red'>*</span>:</label>
                             <input type="text" id='name' placeholder='Enter Name' 
-                            onChange={(e) =>{setUserData({...userData , name:e.target.value})}} />
+                            onChange={(e) =>{setUserData({...userData , name:e.target.value})}}
+                            onBlur={() =>{handleError("name")}} />
+                            {error.name?<div className='gender'>{error.name}</div>:null}
                         </section>
 
                         <section className='age-field'>
                             <label htmlFor="age">Age<span className='red'>*</span>:</label>
                             <input type="number" id='age' placeholder='Enter Age'
-                             onChange={(e) =>{setUserData({...userData , age:e.target.value})}} />
+                             onChange={(e) =>{setUserData({...userData , age:e.target.value})}} 
+                             onBlur={() =>{handleError("age")}} />
+                             {error.age?<div className='gender'>{error.age}</div>:null}
                         </section>
 
                         <section className='gender-field'>
                             <label htmlFor="sex">Sex<span className='red'>*</span></label>
                             <select name="" id="sex" 
                              onChange={(e) =>{setUserData({...userData , gender:e.target.value})}}
-
+                             onBlur={() =>{handleError("sex")}}
                              >
                                 <option value="">Enter sex</option>
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                                 <option value="other">Other</option>
                             </select>
+                            {error.gender?<div className='gender'>{error.gender}</div>:null}
                         </section>
                         <section className='mobile-field'>
                             <label htmlFor="mobile">Mobile:</label>
@@ -73,7 +119,7 @@ const Registration = () => {
                             <label htmlFor="govt-id">Govt Issued ID:</label>
                             <select name="" id="" 
                              onChange={(e) =>{setUserData({...userData , govtIdType:e.target.value})}}
-                              >
+                            >
                                 <option value="">ID type</option>
                                 <option value="adhar">Adhar Card</option>
                                 <option value="pan">Pan Card</option>
@@ -206,6 +252,9 @@ const Registration = () => {
                         <span><button className='submit-btn'onClick={handleSubmit}>Submit</button></span>
                     </div>
                 </form>
+            </div>
+            <div className='message'>
+                 {seeDetails && <Message setSeeDetails={setSeeDetails} />}
             </div>
         </div>
     )

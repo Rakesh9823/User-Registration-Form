@@ -7,6 +7,7 @@
 
 .container{
     border: 1px solid;
+    
 }
 .red{
     color: red;
@@ -29,6 +30,7 @@ h2{
     margin-top: 20px;
     font-family:'Times New Roman', Times, serif;
     font-weight: bolder;
+    z-index: 0;
 }
 form{
     margin-top: 50px;
@@ -37,6 +39,10 @@ form{
 input{
     margin-left: 10px;
     padding-left: 10px;
+}
+.gender{
+    color: red;
+    margin-left: 4rem;
 }
 
 .personal-details , .contact-details , .address-details , .other-details{
@@ -84,6 +90,13 @@ input{
 .submit-btn:hover{
     background-color: green;
     color: #ffffff;
+}
+
+.message{
+    position: relative;
+    top: 15rem;
+    left: 18rem;
+    z-index: 1;
 }
 
 
